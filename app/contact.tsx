@@ -1,6 +1,9 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Link } from "expo-router";
+import { AntDesign } from "@expo/vector-icons";
+import { Entypo } from '@expo/vector-icons';
+
 
 export default () => {
     return (
@@ -10,14 +13,18 @@ export default () => {
             <View style={styles.contactContainer} >
 
                 <View style={styles.contacts} >
-                    <Text>Email: gbarros1337@gmail.com</Text>
-                    <Text>Telefone: (81) 99906-0088</Text>
+                    <Text> <Entypo name="mail" size={24} color="black" /> gbarros1337@gmail.com</Text>
+                    <Text> <Entypo name="phone" size={24} color="black" /> (81) 99906-0088</Text>
                 </View>
 
 
                 <View style={styles.contactsLink}>
-                    <Link href='https://github.com/Barros313'> <Text> GitHub - Barros313 </Text> </Link>
-                    <Link href='https://www.linkedin.com/in/gabrielbalmeida/'> <Text> LinkedIn - Gabriel Barros </Text> </Link>
+                    <Link href='https://github.com/Barros313'> 
+                        <Text> <AntDesign name="github" size={24} color="black" /> Barros313 </Text> 
+                    </Link>
+                        <Link href='https://www.linkedin.com/in/gabrielbalmeida/'> 
+                        <Text> <AntDesign name="linkedin-square" size={24} color="black" /> Gabriel Barros </Text> 
+                    </Link>
                 </View>
 
             </View>
