@@ -8,7 +8,11 @@ export default function Education() {
 
             <View style={styles.tabContainer}>
 
-            
+            <View style={styles.text}>
+                <Text> Faculdade Senac PE </Text>
+                <Text> Análise e Desenvolvimento de Sistemas </Text>
+                <Text> 2023 - 2025 (Cursando) </Text>
+            </View>
 
             </View>
 
@@ -46,7 +50,6 @@ const styles = StyleSheet.create({
     },
 
     text: {
-        fontSize: 30,
-        color: "#333",
-    }
+        margin: 30,
+    }, 
 });
