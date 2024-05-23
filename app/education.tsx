@@ -16,6 +16,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
 
+    
+
     institutionName: {
         fontSize: 40,
     },

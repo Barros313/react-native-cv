@@ -16,9 +16,9 @@ export default function Index() {
 
       <View style={styles.navbar}>
         
-        <Link href='/about' style={styles.navbarItems} > 
+        <Link href='/contact' style={styles.navbarItems} > 
           <Pressable>
-            <Text>  </Text>
+            <Text> CONTATO </Text>
           </Pressable>
         </Link>
 
