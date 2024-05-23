@@ -14,7 +14,7 @@ export default function Index() {
       <Image source={require('../assets/images/barros313-profile-picture.png')} style={styles.image}></Image>
       <Text style={styles.name}> Gabriel Barros </Text>
 
-      <View style={styles.navbar}>
+      <View style={styles.tabContainer}>
         
         <Link href='/contact' style={styles.navbarItems} > 
           <Pressable>
@@ -47,14 +47,25 @@ const styles = StyleSheet.create({
     borderRadius: 18,
   }, 
   
-  name: {
-    fontSize: 35,
-  }, 
-  
-  navbar: {
+  tabContainer: {
     marginTop: 20,
     marginBottom: 20,
-  }, 
+    padding: 20,
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+        width: 0,
+        height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
+  },
+
+  name: {
+    fontSize: 35,
+  },
   
   navbarItems: {
     margin: 10,

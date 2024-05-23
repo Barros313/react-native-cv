@@ -10,7 +10,7 @@ export default () => {
         <View style={styles.container}>
             <Text style={styles.pageTitle}> CONTATO </Text>    
 
-            <View style={styles.contactContainer} >
+            <View style={styles.tabContainer} >
 
                 <View style={styles.contacts} >
                     <Text> <Entypo name="mail" size={24} color="black" /> gbarros1337@gmail.com</Text>
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
 
-    contactContainer: {
+    tabContainer: {
         marginTop: 20,
         marginBottom: 20,
         padding: 20,
