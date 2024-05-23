@@ -1,10 +1,10 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 
 export default function Education() {
     return (
         <View style={styles.container}>
-            <Text> Educação </Text>
+            <Text style={styles.institutionName}> EDUCAÇÃO </Text>
         </View>
     );
 };
@@ -17,13 +17,11 @@ const styles = StyleSheet.create({
     },
 
     institutionName: {
-        fontSize: '50px',
+        fontSize: 40,
     },
 
     text: {
         fontSize: 30,
         color: "#333",
-    },
-
-
+    }
 });
