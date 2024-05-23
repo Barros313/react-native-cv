@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import { Link } from "expo-router";
+import React from "react";
 
 export default function Index() {
   return (
@@ -12,7 +13,29 @@ export default function Index() {
     >
       <Image source={require('../assets/images/barros313-profile-picture.png')} style={styles.image}></Image>
       <Text style={styles.name}> Gabriel Barros </Text>
-      <Link href='/about'>About</Link>
+
+      <View style={styles.navbar}>
+        
+        <Link href='/about' style={styles.navbarItems} > 
+          <Pressable>
+            <Text>  </Text>
+          </Pressable>
+        </Link>
+
+        <Link href='/education' style={styles.navbarItems} > 
+          <Pressable>
+            <Text> EDUCAÇÃO </Text>
+          </Pressable> 
+        </Link>
+
+        <Link href='/projects' style={styles.navbarItems} > 
+          <Pressable>
+            <Text> PROJETO </Text>
+          </Pressable> 
+
+        </Link>
+      </View>
+
     </View>
   );
 }
@@ -20,9 +43,26 @@ export default function Index() {
 const styles = StyleSheet.create({
   image: {
     width: 200,
-    height:200,
+    height: 200,
     borderRadius: 18,
-  }, name: {
+  }, 
+  
+  name: {
     fontSize: 35,
+  }, 
+  
+  navbar: {
+    marginTop: 20,
+    marginBottom: 20,
+  }, 
+  
+  navbarItems: {
+    margin: 10,
+    color: 'green',
+    fontSize: 20,
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
+    textDecorationStyle:'solid',
+    textDecorationColor: 'blue',
   }
 });
