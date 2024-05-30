@@ -1,77 +1,51 @@
-import React, { useState, useEffect } from "react";
-import { Text, Platform, View, StyleSheet, SafeAreaView, Button, Alert } from "react-native";
-import { StatusBar } from "expo-status-bar";
-
-import MapView, { Marker } from "react-native-maps";
+import React, { useState } from "react";
+import { View, StyleSheet, SafeAreaView, Button, Alert } from "react-native";
+import MapView, { Marker, Region } from "react-native-maps";
 import * as Location from "expo-location";
-import { LocationObjectCoords } from "expo-location";
 
-interface CurrentLocation {
+interface Location {
     latitude: number,
-    longitude: number,
-    latitudeDelta: number;
-    longitudeDelta: number;
+    longitude: number
 }
 
 export default () => {
-    const [location, setLocation] = useState<CurrentLocation | null>(null);
-    const [errorMsg, setErrorMsg] = useState<string | null>(null);
+    const [region, setRegion] = useState<Region>({
+        latitude: 37.78825,
+        longitude: -122.4324,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421
+    });
 
-    const locateUser = async () => {
+    const [userLocation, setUserLocation] = useState<Location | null>(null);
+
+    const showLocation = async() => {
         let { status } = await Location.requestForegroundPermissionsAsync();
-
         if (status !== 'granted') {
-            setErrorMsg('Permissão de acesso a localização do dispositivo negada.');
+            Alert.alert('Permissão para acessar localização negada.');
             return;
         }
 
         let location = await Location.getCurrentPositionAsync({});
-        setLocation({
-                latitude: location.coords.latitude,
-                longitude: location.coords.longitude,
-                latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421
-            });
+        setUserLocation({
+            latitude: location.coords.latitude,
+            longitude: location.coords.longitude
+        });
+
+        setRegion({
+            latitude: location.coords.latitude,
+            longitude: location.coords.longitude,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421
+        });
     };
 
-/*     useEffect(() => {
-        locateUser();
-    }, []); */
-
-    let text = 'Aguardando...';
-
-    if (errorMsg) {
-        text = errorMsg;
-    } else if (location) {
-        text = JSON.stringify(location);
-    }
-
     return (
-        <SafeAreaView style={styles.container}>
-            <Button title="Ir para minha localização" onPress={locateUser} />
-                <View style={styles.mapContainer}>
-                    <MapView
-                        initialRegion={{
-                            latitude: 37.78825,
-                            longitude: -122.4324,
-                            latitudeDelta: 0.0922,
-                            longitudeDelta: 0.0421,
-                        }}
-                        region={location || undefined}
-                        style={styles.map}
-                    >
-
-                        {location && (
-                            <Marker
-                                coordinate={{ latitude: location.latitude, longitude: location.longitude }}
-                                title="Localização atual"
-                                />
-                        )}
-
-                    </MapView>
-                </View>
-                <StatusBar style="auto"/>
-        </SafeAreaView>
+        <View style={styles.container}>
+            <MapView style={styles.map} region={region} >
+                {userLocation && <Marker coordinate={userLocation} title="Sua localização"/>}
+            </MapView>
+            <Button title="Ir para sua localização" onPress={showLocation}/>
+        </View>
     );
 }
 
@@ -79,18 +53,11 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       paddingTop: 25,
-    },
-    paragraph: {
-      fontSize: 18,
-      textAlign: 'center',
-    },
-    mapContainer: {
-        flex: 1,
-        width: '95%',
-        alignSelf: 'center'
+      justifyContent: 'center',
+      alignItems: 'center'
     },
     map: {
         width: '100%',
-        height: '100%'
+        height: '95%'
     }
   });
