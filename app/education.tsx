@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Image } from "react-native";
 
 export default function Education() {
     return (
@@ -9,10 +9,25 @@ export default function Education() {
             <View style={styles.tabContainer}>
 
             <View style={styles.text}>
-                <Text> Faculdade Senac PE </Text>
-                <Text> Análise e Desenvolvimento de Sistemas </Text>
-                <Text> 2023 - 2025 (Cursando) </Text>
+                <View>
+                    <Image style={styles.image} source={require("../assets/images/senac-black-white.png")}/>
+
+                    <Text> Faculdade Senac PE </Text>
+                    <Text> Análise e Desenvolvimento de Sistemas </Text>
+                    <Text> 2023 - 2025 (Cursando) </Text>
+                </View>
             </View>
+
+            <View style={styles.text}>
+                <View>
+                    <Image style={styles.image} source={require("../assets/images/ifpe-logo.png")}/>
+
+                    <Text> Instituto Federal de Pernambuco - Campus Recife </Text>
+                    <Text> Ténico em Eletrotécnica </Text>
+                    <Text> 2018 - 2021 (Incompleto) </Text>
+                </View>
+            </View>
+
 
             </View>
 
@@ -51,5 +66,13 @@ const styles = StyleSheet.create({
 
     text: {
         margin: 30,
-    }, 
+        flexDirection: "row",
+        alignItems: "center"
+    },
+
+    image: {
+        width: 40,
+        height: 40,
+        borderRadius: 5,
+    }
 });
