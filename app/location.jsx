@@ -11,7 +11,7 @@ export default function App() {
   const handleUsuario = async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== 'granted') {
-      setMensagemErro('Permissão para acessar a localização foi negada');
+      setMensagemErro('Permissão negada.');
       return;
     }
 
@@ -21,21 +21,18 @@ export default function App() {
       longitude: userLocation.coords.longitude,
       latitudeDelta: 0.0922,
       longitudeDelta: 0.0421,
-
-      
     });
 
   };
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.nome}>Onde estou?</Text>
-      <Button title="Localizar-me" onPress={handleUsuario} />
+      <Button title="Ir para localização atual" onPress={handleUsuario} />
       <View style={styles.mapContainer}>
         <MapView
           initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
+            latitude: -8.063108,
+            longitude: -34.874002,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}
@@ -45,7 +42,7 @@ export default function App() {
           {location && (
             <Marker
               coordinate={{ latitude: location.latitude, longitude: location.longitude }}
-              title="Você está aqui!"
+              title="Sua localização!"
             />
           )}
         </MapView>
@@ -58,21 +55,10 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 25,
-  },
-  nome: {
-    fontSize: 22,
-    color: "#FCEEEE",
-    width: '42%',
-    textAlign: "center",
-    backgroundColor: "#D33928",
-    borderRadius: 20,
-    margin: 16,
-    alignSelf: "center",
   },
   mapContainer: {
     flex: 1,
-    width: '95%',
+    width: '100%',
     alignSelf: "center",
   },
   map: {

@@ -16,29 +16,29 @@ export default function Index() {
 
       <View style={styles.tabContainer}>
         
-        <Link href='/contact' style={styles.navbarItems} > 
-          <Pressable>
+        <Pressable>
+          <Link href='/contact' style={styles.navbarItems} > 
             <Text> CONTATO </Text>
-          </Pressable>
-        </Link>
+          </Link>
+        </Pressable>
 
-        <Link href='/education' style={styles.navbarItems} > 
-          <Pressable>
+        <Pressable>
+          <Link href='/education' style={styles.navbarItems} > 
             <Text> EDUCAÇÃO </Text>
-          </Pressable> 
-        </Link>
+          </Link>
+        </Pressable> 
 
-        <Link href='/projects' style={styles.navbarItems} > 
-          <Pressable>
-            <Text> PROJETO </Text>
-          </Pressable> 
-        </Link>
+        <Pressable>
+          <Link href='/projects' style={styles.navbarItems} > 
+              <Text> PROJETO </Text>
+          </Link>
+        </Pressable> 
 
-        <Link href='/location' style={styles.navbarItems} > 
-          <Pressable>
-            <Text> LOCALIZAÇÃO </Text>
-          </Pressable> 
-        </Link>
+        <Pressable>
+          <Link href='/location' style={styles.navbarItems} > 
+              <Text> LOCALIZAÇÃO </Text>
+          </Link>
+        </Pressable> 
 
       </View>
 
