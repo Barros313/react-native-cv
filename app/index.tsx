@@ -32,8 +32,14 @@ export default function Index() {
           <Pressable>
             <Text> PROJETO </Text>
           </Pressable> 
-
         </Link>
+
+        <Link href='/location' style={styles.navbarItems} > 
+          <Pressable>
+            <Text> LOCALIZAÇÃO </Text>
+          </Pressable> 
+        </Link>
+
       </View>
 
     </View>
